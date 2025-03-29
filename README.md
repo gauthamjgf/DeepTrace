@@ -1,78 +1,80 @@
-DeepTrace
-Asynchronous Web Crawler for Tor and I2P
+🌐 DeepTrace
 
-Overview
+📌 Overview
 
-This project is an asynchronous web crawler designed for scraping data from websites on both the Tor (.onion) and I2P (.i2p) networks. Additionally, it includes an NLP component for hate speech classification on the extracted text data.
+This project is an asynchronous web crawler designed for scraping data from websites on the Tor (.onion) and I2P (.i2p) networks. Additionally, it features an NLP-based hate speech classification system for analyzing extracted text data.
 
-Features
+🚀 Features
 
-Asynchronous Web Crawling
+🔹 Asynchronous Web Crawling
 
-Concurrent crawling of Tor and I2P websites using asyncio and aiohttp.
+✅ Concurrent crawling of Tor and I2P websites using asyncio and aiohttp.
+✅ Data is saved as HTML files in the archive/ directory.
+✅ CSV log (data.csv) tracks URLs and timestamps.
+✅ Avoid redundant crawling by storing temporary URLs in temp/scraped.txt.
 
-Data is saved to HTML files in the archive directory.
+🔹 Randomization & Security
 
-A CSV file (data.csv) stores URLs and timestamps for tracking purposes.
+🔒 Random User-Agents for enhanced anonymity.
+🔒 Secure random strings used for various purposes.
 
-Temporary URLs are stored in a database (temp/scraped.txt) to avoid redundant crawling.
+🔹 NLP-Based Hate Speech Analysis
 
-Randomization and Security
+🧠 Utilizes pre-trained NLP model: Hate-speech-CNERG/dehatebert-mono-english.
+📊 Performs automated hate speech classification on extracted text.
 
-Random user agents enhance anonymity during crawling.
+🔹 User-Friendly CLI Interface
 
-Secure random strings are used for various purposes.
+🖥️ main.py provides an interactive menu for:
 
-NLP Analysis
+Starting web crawling on Tor, I2P, or both.
 
-Hate speech classification using a pre-trained model (Hate-speech-CNERG/dehatebert-mono-english).
+Checking the Tor IP Address.
 
-Analysis of text data extracted during web crawling.
+🔹 Continuous Background Processing
 
-User Interface
+♻️ Runs a background thread (run_process_files_continuously) for automated file processing.
 
-Command-Line Interface (CLI) (main.py) for interactive menu-based control.
+⚙️ Prerequisites
 
-Options to initiate web crawling through Tor, I2P, or both.
-
-Tor IP Utility for checking the current IP address.
-
-Continuous Background Processing
-
-A background thread (run_process_files_continuously) ensures continuous file processing.
-
-Prerequisites
-
-Python 3.10.x is preferable.
-
-Install required packages using:
+📌 Python 3.10.x is recommended.
+📌 Install dependencies:
 
 pip install -r requirements.txt
 
-Ensure Tor is running and configured for web crawling through the Tor network.
+📌 Ensure Tor is running and configured for web crawling through the Tor network.
 
-Usage
+🛠️ Usage
 
-Run main.py to access the CLI menu and start web crawling or run the Tor IP Utility.
+▶️ Run the CLI:
 
-Execute async_crawl4.py and async_crawl_i2p.py independently for specific networks.
+python main.py
 
-Continuous file processing is handled in the background.
+🎯 Choose from the menu to start crawling Tor, I2P, or both.
+▶️ Run individual crawlers:
 
-File Structure
+python async_crawl4.py    # For Tor
+python async_crawl_i2p.py # For I2P
 
-├── async_crawl4.py       # Asynchronous web crawler for Tor network
-├── async_crawl_i2p.py    # Asynchronous web crawler for I2P network
-├── main.py               # CLI for user interaction and control
-├── nlp_main.py           # NLP script for hate speech classification
-├── requirements.txt      # List of required Python packages
-├── temp/                 # Folder for temporary data storage
-└── archive/              # Folder for storing scraped data
+♻️ Background file processing is handled automatically.
 
-Acknowledgements
+📂 Project Structure
 
-This project uses the transformers library by Hugging Face for NLP tasks.
+📁 Project Root
+│── async_crawl4.py       # Tor Network Crawler
+│── async_crawl_i2p.py    # I2P Network Crawler
+│── main.py               # CLI for user interaction
+│── nlp_main.py           # Hate Speech Classification
+│── requirements.txt      # Dependencies
+│── temp/                 # Temporary storage
+└── archive/              # Scraped data storage
 
-The hate speech classification model used is Hate-speech-CNERG/dehatebert-mono-english.
+🙌 Acknowledgements
 
-Note: This project is intended for ethical web scraping and research purposes only. Users are responsible for ensuring compliance with relevant laws and regulations.
+✨ Built with:
+
+transformers library by Hugging Face 🧠
+
+Pre-trained model: Hate-speech-CNERG/dehatebert-mono-english
+
+📢 Disclaimer: This project is intended strictly for ethical research and educational purposes. Users are responsible for ensuring compliance with relevant laws and regulations.
